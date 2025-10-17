@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For My Hano 💖</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      color: white;
+      animation: fadeIn 2s ease;
+    }
+
+    h1 {
+      font-size: 2em;
+      animation: textGlow 3s infinite alternate;
+    }
+
+    p {
+      font-size: 1.2em;
+      margin-top: 15px;
+    }
+
+    button {
+      background-color: white;
+      color: #ff6b81;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      border-radius: 25px;
+      margin-top: 25px;
+      cursor: pointer;
+      transition: 0.4s;
+    }
+
+    button:hover {
+      background-color: #ff6b81;
+      color: white;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes textGlow {
+      from { text-shadow: 0 0 5px #fff; }
+      to { text-shadow: 0 0 20px #fff, 0 0 30px #ff6b81; }
+    }
+
+    .hearts {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+
+    .heart {
+      position: absolute;
+      color: #fff;
+      animation: float 5s linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0.5);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-10vh) scale(1.2);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="hearts" id="hearts"></div>
+  <div class="container" id="content">
+    <h1>Hey Hano 💖</h1>
+    <p>I have something to tell you...</p>
+    <button onclick="showProposal()">Click Me 💌</button>
+  </div>
+
+  <script>
+    function showProposal() {
+      document.getElementById('content').innerHTML = `
+        <h1>Hano 💕</h1>
+        <p>You are the most amazing person I’ve ever met.<br>
+        I love your personality, your smile, and everything about you. 🥰<br>
+        So I just want to ask...</p>
+        <h1 style="margin-top:20px;">Will you be mine forever? ❤️</h1>
+        <p>– Karim 💍</p>
+      `;
+    }
+
+    // Floating hearts animation
+    const hearts = document.getElementById("hearts");
+    setInterval(() => {
+      const heart = document.createElement("div");
+      heart.classList.add("heart");
+      heart.innerHTML = "💖";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.fontSize = Math.random() * 20 + 20 + "px";
+      heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+      hearts.appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }, 300);
+  </script>
+</body>
+</html>
